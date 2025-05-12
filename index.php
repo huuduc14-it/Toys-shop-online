@@ -551,6 +551,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
         <section>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
           <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-3">View reveneu</a>
+           <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-3">Staff list</a>
       <?php endif; ?>
         </section>
          <!-- Chức năng staff -->
