@@ -92,3 +92,5 @@
 2025-05-12 15:31:39 - Toggle Favorite Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.favorites' doesn't exist
 2025-05-12 15:38:23 - Toggle Favorite Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.favorites' doesn't exist
 2025-05-12 15:43:28 - Toggle Favorite Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.favorites' doesn't exist
+2025-05-12 16:03:09 - Toggle Favorite Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.favorites' doesn't exist
+2025-05-12 16:03:10 - Toggle Favorite Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.favorites' doesn't exist

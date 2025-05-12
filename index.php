@@ -751,7 +751,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
                             </div>
                             <p class="testimonial-text">"Đồ chơi ở đây rất chất lượng và an toàn. Con tôi rất thích những món đồ chơi giáo dục mà tôi đã mua. Nhân viên cửa hàng cũng rất thân thiện và tư vấn nhiệt tình."</p>
                             <div class="testimonial-author">
-                                <img src="/api/placeholder/50/50" alt="Avatar">
+                                <!-- <img src="/api/placeholder/50/50" alt="Avatar"> -->
                                 <div>
                                     <h6 class="mb-0">Nguyễn Thị Hương</h6>
                                     <small class="text-muted">Khách hàng thân thiết</small>
@@ -770,7 +770,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
                             </div>
                             <p class="testimonial-text">"Rất hài lòng với dịch vụ giao hàng nhanh chóng. Đồ chơi được đóng gói cẩn thận và đúng như mô tả trên website. Sẽ tiếp tục mua hàng ở đây trong tương lai."</p>
                             <div class="testimonial-author">
-                                <img src="/api/placeholder/50/50" alt="Avatar">
+                                <!-- <img src="/api/placeholder/50/50" alt="Avatar"> -->
                                 <div>
                                     <h6 class="mb-0">Trần Văn Minh</h6>
                                     <small class="text-muted">Khách hàng mới</small>
@@ -789,7 +789,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
                             </div>
                             <p class="testimonial-text">"Cửa hàng có nhiều sản phẩm đa dạng, phù hợp với nhiều lứa tuổi khác nhau. Tôi đặc biệt thích những món đồ chơi STEM giúp bé phát triển tư duy logic và sáng tạo."</p>
                             <div class="testimonial-author">
-                                <img src="/api/placeholder/50/50" alt="Avatar">
+                                <!-- <img src="/api/placeholder/50/50" alt="Avatar"> -->
                                 <div>
                                     <h6 class="mb-0">Lê Thị Thanh</h6>
                                     <small class="text-muted">Giáo viên mầm non</small>

@@ -54,7 +54,7 @@ try {
 
 // Calculate cart and favorite counts for badges
 $cart_count = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
-$favorite_count = isset($_SESSION['favorites']) ? count($_SESSION['favorites']) : 0;
+// $favorite_count = isset($_SESSION['favorites']) ? count($_SESSION['favorites']) : 0;
 ?>
     <!DOCTYPE html>
     <html lang="vi">
@@ -353,12 +353,12 @@ $favorite_count = isset($_SESSION['favorites']) ? count($_SESSION['favorites']) 
                             <input class="form-control" type="search" name="query" placeholder="Tìm kiếm đồ chơi..." aria-label="Search">
                             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </form>
-                        <a href="favorites.php" class="btn btn-outline-dark position-relative me-2">
+                        <!-- <a href="favorites.php" class="btn btn-outline-dark position-relative me-2">
                             <i class="fas fa-heart"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger favorite-badge">
                             <?php echo $favorite_count; ?>
                         </span>
-                        </a>
+                        </a> -->
                         <a href="cart.php" class="btn btn-outline-dark position-relative">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
@@ -420,9 +420,9 @@ $favorite_count = isset($_SESSION['favorites']) ? count($_SESSION['favorites']) 
                                         </p>
                                     </div>
                                     <div class="card-footer bg-white border-top-0 d-flex justify-content-between align-items-center">
-                                        <button class="btn btn-sm btn-outline-dark favorite-btn <?php echo isset($_SESSION['favorites']) && in_array($product['id'], $_SESSION['favorites']) ? 'favorited' : ''; ?>" data-product-id="<?php echo $product['id']; ?>">
+                                        <!-- <button class="btn btn-sm btn-outline-dark favorite-btn <?php echo isset($_SESSION['favorites']) && in_array($product['id'], $_SESSION['favorites']) ? 'favorited' : ''; ?>" data-product-id="<?php echo $product['id']; ?>">
                                             <i class="<?php echo isset($_SESSION['favorites']) && in_array($product['id'], $_SESSION['favorites']) ? 'fas fa-heart' : 'far fa-heart'; ?>"></i>
-                                        </button>
+                                        </button> -->
                                         <form class="add-to-cart-form d-flex align-items-center">
                                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                                             <input type="number" name="quantity" value="1" min="1" class="form-control quantity-input me-2">
