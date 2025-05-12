@@ -4,13 +4,26 @@ require_once 'db_connect.php';
 session_start();
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
-// include('db_connect.php');
 
 $conn = create_connection();
 
 // Log function for debugging
 function logError($message) {
     file_put_contents('debug.log', date('Y-m-d H:i:s') . " - Index Error: $message\n", FILE_APPEND);
+}
+
+// Khôi phục giỏ hàng nếu người dùng đã đăng nhập nhưng giỏ hàng chưa được khởi tạo
+if (isset($_SESSION['user_id']) && !isset($_SESSION['cart'])) {
+    try {
+        $_SESSION['cart'] = [];
+        $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE user_id = ?");
+        $stmt->execute([$_SESSION['user_id']]);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $_SESSION['cart'][$row['product_id']] = $row['quantity'];
+        }
+    } catch (PDOException $e) {
+        logError("Cart Restore DB Error: " . $e->getMessage());
+    }
 }
 
 // Check for remember_me cookie
@@ -34,27 +47,19 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me'])) {
             $_SESSION['user_name'] = $user['full_name'];
             $_SESSION['user_email'] = $user['email'];
 
-            // Load cart from database
+            // Khôi phục giỏ hàng
+            $_SESSION['cart'] = [];
             $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE user_id = ?");
             $stmt->execute([$user['id']]);
-            $_SESSION['cart'] = [];
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $_SESSION['cart'][$row['product_id']] = $row['quantity'];
             }
 
-            // Load favorites from database
-            // $stmt = $pdo->prepare("SELECT product_id FROM favorites WHERE user_id = ?");
-            // $stmt->execute([$user['id']]);
-            // $_SESSION['favorites'] = [];
-            // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            //     $_SESSION['favorites'][] = $row['product_id'];
-            // }
-
-            // $newExpiry = date('Y-m-d H:i:s', strtotime('+30 days'));
-            // $stmt = $pdo->prepare("UPDATE users SET remember_token_expiry = ? WHERE id = ?");
-            // $stmt->execute([$newExpiry, $user['id']]);
-            // setcookie('remember_me', $token, time() + 30 * 24 * 60 * 60, '/', '', false, true);
-            // logError("Auto-login via Remember Me: User ID {$user['id']}");
+            $newExpiry = date('Y-m-d H:i:s', strtotime('+30 days'));
+            $stmt = $pdo->prepare("UPDATE users SET remember_token_expiry = ? WHERE id = ?");
+            $stmt->execute([$newExpiry, $user['id']]);
+            setcookie('remember_me', $token, time() + 30 * 24 * 60 * 60, '/', '', false, true);
+            logError("Auto-login via Remember Me: User ID {$user['id']}");
         } else {
             setcookie('remember_me', '', time() - 3600, '/');
             logError("Invalid Remember Me token: $token");

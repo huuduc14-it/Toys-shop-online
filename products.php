@@ -8,6 +8,20 @@ function logError($message) {
     file_put_contents('debug.log', date('Y-m-d H:i:s') . " - Products Error: $message\n", FILE_APPEND);
 }
 
+// Khôi phục giỏ hàng nếu người dùng đã đăng nhập nhưng giỏ hàng chưa được khởi tạo
+if (isset($_SESSION['user_id']) && !isset($_SESSION['cart'])) {
+    try {
+        $_SESSION['cart'] = [];
+        $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE user_id = ?");
+        $stmt->execute([$_SESSION['user_id']]);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $_SESSION['cart'][$row['product_id']] = $row['quantity'];
+        }
+    } catch (PDOException $e) {
+        logError("Cart Restore DB Error: " . $e->getMessage());
+    }
+}
+
 // Check for remember_me cookie
 if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me'])) {
     try {
@@ -28,6 +42,15 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['full_name'];
             $_SESSION['user_email'] = $user['email'];
+
+            // Khôi phục giỏ hàng
+            $_SESSION['cart'] = [];
+            $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE user_id = ?");
+            $stmt->execute([$user['id']]);
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $_SESSION['cart'][$row['product_id']] = $row['quantity'];
+            }
+
             $newExpiry = date('Y-m-d H:i:s', strtotime('+30 days'));
             $stmt = $pdo->prepare("UPDATE users SET remember_token_expiry = ? WHERE id = ?");
             $stmt->execute([$newExpiry, $user['id']]);
@@ -53,8 +76,7 @@ try {
 }
 
 // Calculate cart and favorite counts for badges
-$cart_count = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
-// $favorite_count = isset($_SESSION['favorites']) ? count($_SESSION['favorites']) : 0;
+$cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 ?>
     <!DOCTYPE html>
     <html lang="vi">

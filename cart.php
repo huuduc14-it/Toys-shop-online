@@ -11,6 +11,18 @@ function logError($message) {
 // Initialize cart if not set
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
+    // Nếu người dùng đã đăng nhập, khôi phục giỏ hàng từ cơ sở dữ liệu
+    if (isset($_SESSION['user_id'])) {
+        try {
+            $stmt = $pdo->prepare("SELECT product_id, quantity FROM cart_items WHERE user_id = ?");
+            $stmt->execute([$_SESSION['user_id']]);
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $_SESSION['cart'][$row['product_id']] = $row['quantity'];
+            }
+        } catch (PDOException $e) {
+            logError("Cart Restore DB Error: " . $e->getMessage());
+        }
+    }
 }
 
 // Handle remove item
@@ -18,6 +30,15 @@ if (isset($_GET['remove'])) {
     $product_id = filter_var($_GET['remove'], FILTER_SANITIZE_NUMBER_INT);
     if (isset($_SESSION['cart'][$product_id])) {
         unset($_SESSION['cart'][$product_id]);
+        // Xóa sản phẩm khỏi cart_items
+        if (isset($_SESSION['user_id'])) {
+            try {
+                $stmt = $pdo->prepare("DELETE FROM cart_items WHERE user_id = ? AND product_id = ?");
+                $stmt->execute([$_SESSION['user_id'], $product_id]);
+            } catch (PDOException $e) {
+                logError("DB Error on Remove Item: " . $e->getMessage());
+            }
+        }
     }
     header("Location: cart.php");
     exit();
@@ -27,10 +48,33 @@ if (isset($_GET['remove'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_cart'])) {
     foreach ($_POST['quantity'] as $product_id => $quantity) {
         $quantity = filter_var($quantity, FILTER_SANITIZE_NUMBER_INT);
+        $product_id = filter_var($product_id, FILTER_SANITIZE_NUMBER_INT);
         if ($quantity <= 0) {
             unset($_SESSION['cart'][$product_id]);
+            // Xóa sản phẩm khỏi cart_items
+            if (isset($_SESSION['user_id'])) {
+                try {
+                    $stmt = $pdo->prepare("DELETE FROM cart_items WHERE user_id = ? AND product_id = ?");
+                    $stmt->execute([$_SESSION['user_id'], $product_id]);
+                } catch (PDOException $e) {
+                    logError("DB Error on Remove Item: " . $e->getMessage());
+                }
+            }
         } else {
             $_SESSION['cart'][$product_id] = $quantity;
+            // Cập nhật số lượng trong cart_items
+            if (isset($_SESSION['user_id'])) {
+                try {
+                    $stmt = $pdo->prepare("
+                        INSERT INTO cart_items (user_id, product_id, quantity)
+                        VALUES (?, ?, ?)
+                        ON DUPLICATE KEY UPDATE quantity = ?
+                    ");
+                    $stmt->execute([$_SESSION['user_id'], $product_id, $quantity, $quantity]);
+                } catch (PDOException $e) {
+                    logError("DB Error on Update Quantity: " . $e->getMessage());
+                }
+            }
         }
     }
     $_SESSION['success'] = "Giỏ hàng đã được cập nhật.";
