@@ -1,0 +1,76 @@
+2025-05-10 16:08:39 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-10 16:10:32 - Search Error: DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-10 16:12:04 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-10 16:12:32 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-10 16:13:39 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-10 16:24:12 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-10 16:24:38 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-10 16:25:42 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-10 16:29:27 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-10 16:37:13 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-10 16:37:29 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-10 16:37:37 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-10 16:41:46 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 10:57:46 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 10:58:02 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 10:58:49 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 10:59:11 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 11:23:30 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 11:27:52 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 11:28:04 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 11:28:31 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 12:16:18 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 12:18:49 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 12:20:13 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 12:21:02 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 12:35:46 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 12:58:40 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 12:59:29 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 13:04:55 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 13:05:58 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 13:06:07 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 13:06:18 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 17:28:07 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 17:28:23 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 17:29:02 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 17:31:20 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 17:44:45 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 17:44:54 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 17:45:15 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 17:56:55 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:06:22 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:31:46 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:51:11 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:55:35 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:55:36 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:55:37 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:55:38 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:58:52 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:58:54 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:59:02 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:59:13 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 18:59:38 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:07:30 - Login Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.cart_items' doesn't exist
+2025-05-11 19:07:56 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:08:19 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:08:29 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:08:33 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:08:45 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:08:53 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:14:23 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:15:49 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:15:50 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:15:51 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:15:57 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:18:59 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:18:59 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:19:07 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:20:10 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:25:26 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:25:37 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:26:06 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:26:14 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:26:25 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:35:09 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-11 19:35:20 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
+2025-05-12 04:53:00 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
