@@ -2,6 +2,8 @@
 ob_start();
 require_once 'db_connect.php';
 session_start();
+$user = $_SESSION['user'];
+$role = $_SESSION['role'];
 // include('db_connect.php');
 
 $conn = create_connection();
@@ -10,8 +12,6 @@ $conn = create_connection();
 function logError($message) {
     file_put_contents('debug.log', date('Y-m-d H:i:s') . " - Index Error: $message\n", FILE_APPEND);
 }
-$user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
-$role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
 
 // Check for remember_me cookie
 if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me'])) {
@@ -551,14 +551,12 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
         <section>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
           <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-3">View reveneu</a>
-           <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-3">Staff list</a>
       <?php endif; ?>
         </section>
          <!-- Chức năng staff -->
         <section>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'staff'): ?>
           <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-3">Confirm payment</a>
-           <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-3">Báo cáo doanh thu hằng tháng</a>
       <?php endif; ?>
         </section>
         <!-- Categories Section -->
@@ -675,9 +673,6 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
                                             </p>
                                         </div>
                                         <div class="card-footer bg-white border-top-0">
-                                            <button class="btn btn-sm btn-outline-dark favorite-btn <?php echo isset($_SESSION['favorites']) && in_array($product['id'], $_SESSION['favorites']) ? 'favorited' : ''; ?>" data-product-id="<?php echo $product['id']; ?>">
-                                                <i class="<?php echo isset($_SESSION['favorites']) && in_array($product['id'], $_SESSION['favorites']) ? 'fas fa-heart' : 'far fa-heart'; ?>"></i>
-                                            </button>
                                             <form class="add-to-cart-form">
                                                 <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                                                 <input type="number" name="quantity" value="1" min="1" class="form-control quantity-input">
@@ -695,6 +690,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
                 </div>
             </div>
         </section>
+
 
         <!-- Promo Banner -->
         <section class="py-5">
