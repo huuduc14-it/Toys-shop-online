@@ -91,3 +91,4 @@
 2025-05-12 15:02:40 - Index Error: Featured Products DB Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.products' doesn't exist
 2025-05-12 15:31:39 - Toggle Favorite Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.favorites' doesn't exist
 2025-05-12 15:38:23 - Toggle Favorite Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.favorites' doesn't exist
+2025-05-12 15:43:28 - Toggle Favorite Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kidstoyland.favorites' doesn't exist

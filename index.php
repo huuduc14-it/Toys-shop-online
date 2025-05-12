@@ -2,8 +2,8 @@
 ob_start();
 require_once 'db_connect.php';
 session_start();
-$user = $_SESSION['user'];
-$role = $_SESSION['role'];
+$user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
 // include('db_connect.php');
 
 $conn = create_connection();
@@ -43,18 +43,18 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_me'])) {
             }
 
             // Load favorites from database
-            $stmt = $pdo->prepare("SELECT product_id FROM favorites WHERE user_id = ?");
-            $stmt->execute([$user['id']]);
-            $_SESSION['favorites'] = [];
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $_SESSION['favorites'][] = $row['product_id'];
-            }
+            // $stmt = $pdo->prepare("SELECT product_id FROM favorites WHERE user_id = ?");
+            // $stmt->execute([$user['id']]);
+            // $_SESSION['favorites'] = [];
+            // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            //     $_SESSION['favorites'][] = $row['product_id'];
+            // }
 
-            $newExpiry = date('Y-m-d H:i:s', strtotime('+30 days'));
-            $stmt = $pdo->prepare("UPDATE users SET remember_token_expiry = ? WHERE id = ?");
-            $stmt->execute([$newExpiry, $user['id']]);
-            setcookie('remember_me', $token, time() + 30 * 24 * 60 * 60, '/', '', false, true);
-            logError("Auto-login via Remember Me: User ID {$user['id']}");
+            // $newExpiry = date('Y-m-d H:i:s', strtotime('+30 days'));
+            // $stmt = $pdo->prepare("UPDATE users SET remember_token_expiry = ? WHERE id = ?");
+            // $stmt->execute([$newExpiry, $user['id']]);
+            // setcookie('remember_me', $token, time() + 30 * 24 * 60 * 60, '/', '', false, true);
+            // logError("Auto-login via Remember Me: User ID {$user['id']}");
         } else {
             setcookie('remember_me', '', time() - 3600, '/');
             logError("Invalid Remember Me token: $token");
@@ -509,12 +509,12 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
                             <input class="form-control" type="search" name="query" placeholder="Tìm kiếm đồ chơi..." aria-label="Search">
                             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </form>
-                        <a href="favorites.php" class="btn btn-outline-dark position-relative me-2">
-                            <i class="fas fa-heart"></i>
+                        <!-- <a href="favorites.php" class="btn btn-outline-dark position-relative me-2"> -->
+                            <!-- <i class="fas fa-heart"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger favorite-badge">
                             <?php echo $favorite_count; ?>
                         </span>
-                        </a>
+                        </a> -->
                         <a href="cart.php" class="btn btn-outline-dark position-relative">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
@@ -693,7 +693,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
 
 
         <!-- Promo Banner -->
-        <section class="py-5">
+        <!-- <section class="py-5">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-md-6">
@@ -730,7 +730,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Testimonials Section -->
         <section class="testimonial-section py-5">
