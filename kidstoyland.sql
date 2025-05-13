@@ -96,10 +96,6 @@ CREATE TABLE `cart_items` (
   CONSTRAINT `cart_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `cart_items` (`id`, `user_id`, `product_id`, `quantity`, `created_at`) VALUES
-(1, 1, 4, 1, '2025-05-09 11:29:25'),
-(2, 1, 5, 1, '2025-05-09 11:29:26');
-
 -- --------------------------------------------------------
 -- BẢNG REVENUE
 -- --------------------------------------------------------
