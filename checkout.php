@@ -26,7 +26,7 @@ while ($row = $result->fetch_assoc()) {
     $total += $subtotal;
     $items[] = $row;
 }
-
+$order_successful = false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $recipient_name = $_POST['name'];
     $phone = $_POST['phone'];
@@ -64,13 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // 4. Xóa giỏ hàng
+    unset($_SESSION['cart']);
+
     $stmt = $conn->prepare("DELETE FROM cart_items WHERE user_id = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
 
-    // 5. Chuyển hướng
-    header("Location: success.php");
-    exit;
+
+    $order_successful = true;
 }
 
 ?>
@@ -303,6 +304,12 @@ input[type=checkbox]{
                         </div>
                     </div>
                 </div>
+                <?php if ($order_successful): ?>
+    <div class="alert alert-success" role="alert">
+        🎉 Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại KidsToyLand.
+    </div>
+<?php endif; ?>
+
             </div>
             
          <div>
