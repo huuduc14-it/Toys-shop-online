@@ -25,8 +25,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `full_name`, `username`, `email`, `password`, `created_at`) VALUES
 (1, 'Lâm Khang', NULL, 'lamkhang.lv.9d2@gmail.com', '$2y$10$Cwy/ZJHxPb1EmzJzEixy3uQfW5m7Pj/L.35/pcFXKNpy8cP6UMOhi', '2025-05-07 15:45:44'),
-(2, 'Lâm Vỹ', NULL, 'lamvy060205@gmail.com', '$2y$10$xfVY1l3kS2Y8lT/Z8HmfVO4Mf5qr/AYkE0RIZOoGjNCb3K84LJTmK', '2025-05-11 08:45:58'),
-(3, NULL, 'Huu Duc', 'duc@gmail.com', '$2y$10$UA6d8dqFhh5T1WWWNZGeDetmVrMw8rGwndxxQijdKfBdte8z4l9wm', CURRENT_TIMESTAMP);
+(2, 'Lâm Vỹ', NULL, 'lamvy060205@gmail.com', '$2y$10$xfVY1l3kS2Y8lT/Z8HmfVO4Mf5qr/AYkE0RIZOoGjNCb3K84LJTmK', '2025-05-11 08:45:58');
 
 -- --------------------------------------------------------
 -- BẢNG STAFF

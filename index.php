@@ -82,6 +82,20 @@ try {
 // Calculate cart and favorite counts for badges
 $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']) ? count(array_unique($_SESSION['favorites'])) : 0;
+
+if (isset($_SESSION['user_id'])) {
+    $userId = $_SESSION['user_id'];
+
+    // Truy vấn số lượng đơn hàng với trạng thái 'pending'
+    $stmt = $conn->prepare("SELECT COUNT(*) AS pending_count FROM orders WHERE status = 'pending'");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    $row = $result->fetch_assoc();
+    $pendingCount = $row['pending_count'];
+} else {
+    $pendingCount = 0; // Nếu chưa đăng nhập, không có đơn hàng pending
+}
 ?>
     <!DOCTYPE html>
     <html lang="vi">
@@ -561,7 +575,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
          <!-- Chức năng staff -->
         <section>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'staff'): ?>
-          <a href="confirm.php" class="btn btn-primary p-3 font-extrabold m-3">Confirm payment</a>
+          <a href="confirm.php" class="btn btn-primary p-3 font-extrabold m-3">Confirm payment  <span class="badge bg-danger"><?= $pendingCount ?></span></a>
       <?php endif; ?>
         </section>
         <!-- Categories Section -->

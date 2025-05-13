@@ -2,12 +2,14 @@
 session_start();
 require 'db_connect.php';
 $conn = create_connection();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order_id'])) {
     $orderId = intval($_POST['confirm_order_id']);
     $stmt = $conn->prepare("UPDATE orders SET status = 'completed' WHERE id = ?");
     $stmt->bind_param("i", $orderId);
     $stmt->execute();
 }
+
 $stmt = $conn->prepare("
   INSERT INTO revenue (month, total_revenue)
   SELECT DATE_FORMAT(order_date, '%Y-%m') AS month, SUM(total_amount)
@@ -18,7 +20,6 @@ $stmt = $conn->prepare("
 ");
 $stmt->execute();
 
-
 $result = $conn->query("SELECT * FROM orders ORDER BY order_date DESC");
 ?>
 
@@ -28,10 +29,7 @@ $result = $conn->query("SELECT * FROM orders ORDER BY order_date DESC");
   <meta charset="UTF-8">
   <title>Quản lý đơn hàng</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-   <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-    />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
 </head>
 <body>
   <div class="container mt-5">
@@ -51,7 +49,7 @@ $result = $conn->query("SELECT * FROM orders ORDER BY order_date DESC");
         </tr>
       </thead>
       <tbody>
-        <?php while($order = $result->fetch_assoc()): ?>
+        <?php while ($order = $result->fetch_assoc()) { ?>
         <tr>
           <td><?= $order['id'] ?></td>
           <td><?= htmlspecialchars($order['recipient_name']) ?></td>
@@ -65,17 +63,17 @@ $result = $conn->query("SELECT * FROM orders ORDER BY order_date DESC");
             </span>
           </td>
           <td>
-            <?php if ($order['status'] === 'pending'): ?>
+            <?php if ($order['status'] === 'pending') { ?>
               <form method="post" onsubmit="return confirm('Bạn có chắc muốn xác nhận đơn hàng này?');">
                 <input type="hidden" name="confirm_order_id" value="<?= $order['id'] ?>">
                 <button type="submit" class="btn btn-sm btn-primary">Xác nhận thanh toán</button>
               </form>
-            <?php else: ?>
+            <?php } else { ?>
               <span class="text-muted">Đã hoàn tất</span>
-            <?php endif; ?>
+            <?php } ?>
           </td>
         </tr>
-        <?php endwhile; ?>
+        <?php } ?>
       </tbody>
     </table>
   </div>
