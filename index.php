@@ -569,7 +569,9 @@ if (isset($_SESSION['user_id'])) {
         <!-- Chức năng admin -->
         <section>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-          <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-3">View reveneu</a>
+          <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-2">View reveneu</a>
+          <a href="ManageStaff.php" class="btn btn-primary p-3 font-extrabold m-2" style="width: 120px;">Staff list</a>
+          <a href="ManageProduct.php" class="btn btn-primary p-3 font-extrabold m-2" style="width: 120px;">Store</a>
       <?php endif; ?>
         </section>
          <!-- Chức năng staff -->
