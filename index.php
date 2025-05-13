@@ -561,7 +561,7 @@ $favorite_count = isset($_SESSION['favorites']) && !empty($_SESSION['favorites']
          <!-- Chức năng staff -->
         <section>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'staff'): ?>
-          <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-3">Confirm payment</a>
+          <a href="confirm.php" class="btn btn-primary p-3 font-extrabold m-3">Confirm payment</a>
       <?php endif; ?>
         </section>
         <!-- Categories Section -->

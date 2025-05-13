@@ -32,20 +32,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = $_POST['phone'];
     $address = $_POST['address'];
 
-    // 1. Thêm vào bảng orders
     $stmt = $conn->prepare("INSERT INTO orders (user_id, total_amount, recipient_name, phone, address) 
                             VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("idsss", $user_id, $total, $recipient_name, $phone, $address);
     $stmt->execute();
     $order_id = $stmt->insert_id;
 
-    // 2. Thêm từng sản phẩm vào order_items
     foreach ($items as $item) {
         $product_name = $item['name'];
         $price = $item['price'];
         $quantity = $item['quantity'];
 
-        // Lấy product_id theo name (hoặc dùng ngay trong vòng while ở bước trên)
         $stmt = $conn->prepare("SELECT id FROM products WHERE name = ?");
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
@@ -57,13 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("iiid", $order_id, $pid, $quantity, $price);
         $stmt->execute();
 
-        // 3. Cập nhật stock
         $stmt = $conn->prepare("UPDATE products SET stock = stock - ? WHERE id = ?");
         $stmt->bind_param("ii", $quantity, $pid);
         $stmt->execute();
     }
 
-    // 4. Xóa giỏ hàng
     unset($_SESSION['cart']);
 
     $stmt = $conn->prepare("DELETE FROM cart_items WHERE user_id = ?");

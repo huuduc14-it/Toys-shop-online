@@ -33,12 +33,12 @@ INSERT INTO `users` (`id`, `full_name`, `username`, `email`, `password`, `create
 -- --------------------------------------------------------
 CREATE TABLE `staff` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `username` varchar(64) NOT NULL,
+  `full_name` varchar(64) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `staff` (`username`, `password`, `email`) VALUES
+INSERT INTO `staff` (`full_name`, `password`, `email`) VALUES
 ('staff1','$2y$10$UA6d8dqFhh5T1WWWNZGeDetmVrMw8rGwndxxQijdKfBdte8z4l9wm', 'staff1@gmail.com'),
 ('staff2','$2y$10$UA6d8dqFhh5T1WWWNZGeDetmVrMw8rGwndxxQijdKfBdte8z4l9wm', 'staff2@gmail.com'),
 ('staff3','$2y$10$UA6d8dqFhh5T1WWWNZGeDetmVrMw8rGwndxxQijdKfBdte8z4l9wm', 'staff3@gmail.com');
@@ -48,12 +48,12 @@ INSERT INTO `staff` (`username`, `password`, `email`) VALUES
 -- --------------------------------------------------------
 CREATE TABLE `admin` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `username` varchar(64) NOT NULL,
+  `full_name` varchar(64) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `admin` (`username`, `password`, `email`) VALUES
+INSERT INTO `admin` (`full_name`, `password`, `email`) VALUES
 ('admin','$2y$10$UA6d8dqFhh5T1WWWNZGeDetmVrMw8rGwndxxQijdKfBdte8z4l9wm', 'admin@gmail.com');
 
 -- --------------------------------------------------------
@@ -144,3 +144,23 @@ CREATE TABLE `order_items` (
   FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`) ON DELETE CASCADE,
   FOREIGN KEY (`product_id`) REFERENCES `products`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+SELECT 
+  DATE_FORMAT(order_date, '%Y-%m') AS month,
+  SUM(total_amount) AS total_revenue
+FROM orders
+WHERE status = 'completed' 
+GROUP BY month
+ORDER BY month;
+
+INSERT INTO revenue (month, total_revenue)
+SELECT 
+  DATE_FORMAT(order_date, '%Y-%m') AS month,
+  SUM(total_amount) AS total_revenue
+FROM orders
+WHERE status = 'completed'
+GROUP BY month
+ON DUPLICATE KEY UPDATE
+  total_revenue = VALUES(total_revenue);
+
+ALTER TABLE revenue ADD UNIQUE (month);

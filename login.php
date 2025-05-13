@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (login($email, $password)) {
         if ($remember_me) {
-            // Lưu remember_token vào cơ sở dữ liệu
             try {
                 $token = bin2hex(random_bytes(16));
                 $hashed_token = password_hash($token, PASSWORD_DEFAULT);

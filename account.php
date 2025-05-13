@@ -26,7 +26,7 @@
                         $_SESSION['user'] = $data['email'];
                         $_SESSION['role'] = $role;
                         $_SESSION['user_id'] = $data['id'];
-                        $_SESSION['user_name'] = $data['username'] ?? $data['name'] ?? '';
+                        $_SESSION['user_name'] = $data['full_name'] ?? $data['name'] ?? '';
                         $_SESSION['user_email'] = $data['email'];
                         $stm->close();
                         $conn->close();
