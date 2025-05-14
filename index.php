@@ -488,7 +488,7 @@ if (isset($_SESSION['user_id'])) {
                         <small>
                            
                             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'users'): ?>
-                                 <a href="#" class="text-white me-3"><i class="fas fa-truck me-1"></i> Theo dõi đơn hàng</a>
+                                 
                                  <a href="history.php" class="text-white me-3">Lịch sử mua hàng</a>
                                 
                             <?php endif; ?>
