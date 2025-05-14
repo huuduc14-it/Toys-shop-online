@@ -163,3 +163,14 @@ ON DUPLICATE KEY UPDATE
   total_revenue = VALUES(total_revenue);
 
 ALTER TABLE revenue ADD UNIQUE (month);
+
+CREATE TABLE request (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    order_id INT NOT NULL,
+    reason TEXT NOT NULL,
+    request_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (order_id) REFERENCES orders(id)
+);
