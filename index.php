@@ -679,7 +679,9 @@ if (isset($_SESSION['user_id'])) {
                                         <?php if ($product['id'] % 2 == 0): ?>
                                             <span class="badge-sale">Giảm 20%</span>
                                         <?php endif; ?>
-                                        <img src="<?php echo htmlspecialchars($product['image']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                        <a href="product_detail.php?id=<?php echo $product['id']; ?>">
+                                            <img src="<?php echo htmlspecialchars($product['image']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                        </a>
                                         <div class="card-body">
                                             <div class="product-rating">
                                                 <i class="fas fa-star"></i>
@@ -715,7 +717,6 @@ if (isset($_SESSION['user_id'])) {
                 </div>
             </div>
         </section>
-
 
         <!-- Promo Banner -->
         <!-- <section class="py-5">

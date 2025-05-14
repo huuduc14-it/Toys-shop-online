@@ -423,7 +423,9 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                                     <?php if ($product['id'] % 2 == 0): ?>
                                         <span class="badge-sale">Giảm 20%</span>
                                     <?php endif; ?>
-                                    <img src="<?php echo htmlspecialchars($product['image']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                    <a href="product_detail.php?id=<?php echo $product['id']; ?>">
+                                        <img src="<?php echo htmlspecialchars($product['image']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                    </a>
                                     <div class="card-body">
                                         <div class="product-rating">
                                             <i class="fas fa-star"></i>
@@ -442,9 +444,6 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                                         </p>
                                     </div>
                                     <div class="card-footer bg-white border-top-0 d-flex justify-content-between align-items-center">
-                                        <!-- <button class="btn btn-sm btn-outline-dark favorite-btn <?php echo isset($_SESSION['favorites']) && in_array($product['id'], $_SESSION['favorites']) ? 'favorited' : ''; ?>" data-product-id="<?php echo $product['id']; ?>">
-                                            <i class="<?php echo isset($_SESSION['favorites']) && in_array($product['id'], $_SESSION['favorites']) ? 'fas fa-heart' : 'far fa-heart'; ?>"></i>
-                                        </button> -->
                                         <form class="add-to-cart-form d-flex align-items-center">
                                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                                             <input type="number" name="quantity" value="1" min="1" class="form-control quantity-input me-2">
