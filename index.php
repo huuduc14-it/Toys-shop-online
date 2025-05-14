@@ -503,18 +503,18 @@ if (isset($_SESSION['user_id'])) {
                             <a class="nav-link active" href="index.php">Trang chủ</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link" href="products.php">
                                 Sản phẩm
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Đồ chơi cho bé trai</a></li>
                                 <li><a class="dropdown-item" href="#">Đồ chơi cho bé gái</a></li>
                                 <li><a class="dropdown-item" href="#">Đồ chơi học tập</a></li>
                                 <li><a class="dropdown-item" href="#">Đồ chơi vận động</a></li>
                                 <li><a class="dropdown-item" href="#">Đồ chơi xếp hình</a></li>
-                            </ul>
+                            </ul> -->
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Khuyến mãi</a>
                         </li>
                         <li class="nav-item">
@@ -525,7 +525,7 @@ if (isset($_SESSION['user_id'])) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="d-flex align-items-center">
                         <form class="search-form me-3" action="search.php" method="GET">

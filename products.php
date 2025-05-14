@@ -345,7 +345,7 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Trang chủ</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sản phẩm
                             </a>
@@ -368,7 +368,7 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="d-flex align-items-center">
                         <form class="search-form me-3" action="search.php" method="GET">
