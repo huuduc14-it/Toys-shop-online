@@ -365,10 +365,10 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Về chúng tôi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Liên hệ</a>
                         </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer1">Liên hệ</a>
+                        </li>
                     </ul>
                     <div class="d-flex align-items-center">
                         <form class="search-form me-3" action="search.php" method="GET">
@@ -459,7 +459,7 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
         </section>
 
         <!-- Footer -->
-        <footer class="footer bg-dark">
+        <footer id="footer1"class="footer bg-dark">
             <div class="container">
                 <div class="row pt-5">
                     <div class="col-md-4 col-12 mb-4">

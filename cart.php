@@ -123,6 +123,7 @@ if (!empty($_SESSION['cart'])) {
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
         <!-- Google Fonts: Nunito -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
         <style>
             :root {
                 --primary-color: #FF6B6B;
@@ -276,7 +277,9 @@ if (!empty($_SESSION['cart'])) {
     <main>
         <!-- Cart Section -->
         <section class="cart-section">
+            
             <div class="container">
+                <a href="index.php" class="btn btn-danger"><i class="bi bi-arrow-left"></i> Quay lại<a></a>
                 <div class="cart-card">
                     <h2 class="text-center">Giỏ hàng của bạn</h2>
                     <?php

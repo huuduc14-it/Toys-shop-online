@@ -522,10 +522,10 @@ if (isset($_SESSION['user_id'])) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Về chúng tôi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Liên hệ</a>
                         </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer">Liên hệ</a>
+                        </li>
                     </ul>
                     <div class="d-flex align-items-center">
                         <form class="search-form me-3" action="search.php" method="GET">
@@ -846,7 +846,7 @@ if (isset($_SESSION['user_id'])) {
         </section>
 
         <!-- Footer -->
-        <footer class="footer bg-dark">
+        <footer id="footer"class="footer bg-dark">
             <div class="container">
                 <div class="row pt-5">
                     <div class="col-md-4 col-12 mb-4">
