@@ -318,7 +318,7 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                     </div>
                     <div class="col-md-6 text-end">
                         <small>
-                            <a href="#" class="text-white me-3"><i class="fas fa-truck me-1"></i> Theo dõi đơn hàng</a>
+                            <a href="order_tracking.php" class="text-white me-3"><i class="fas fa-truck me-1"></i> Theo dõi đơn hàng</a>
                             <a href="#" class="text-white me-3"><i class="fas fa-map-marker-alt me-1"></i> Cửa hàng gần bạn</a>
                             <?php if (isset($_SESSION['user_id'])): ?>
                                 <span class="text-white me-3">Xin chào, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
@@ -345,7 +345,7 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Trang chủ</a>
                         </li>
-                        <!-- <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sản phẩm
                             </a>
@@ -365,9 +365,9 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Về chúng tôi</a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#footer1">Liên hệ</a>
+                            <a class="nav-link" href="#">Liên hệ</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center">
@@ -459,7 +459,7 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
         </section>
 
         <!-- Footer -->
-        <footer id="footer1"class="footer bg-dark">
+        <footer class="footer bg-dark">
             <div class="container">
                 <div class="row pt-5">
                     <div class="col-md-4 col-12 mb-4">

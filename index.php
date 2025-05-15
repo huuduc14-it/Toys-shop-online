@@ -96,20 +96,6 @@ if (isset($_SESSION['user_id'])) {
 } else {
     $pendingCount = 0; // Nếu chưa đăng nhập, không có đơn hàng pending
 }
-if (isset($_SESSION['user_id'])) {
-    $userId = $_SESSION['user_id'];
-
-    // Truy vấn số lượng yêu cầu hoàn tiền đã được chấp nhận của user hiện tại
-    $stmt = $conn->prepare("SELECT COUNT(*) AS approved_count FROM request WHERE status = 'approved' AND user_id = ?");
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    $row = $result->fetch_assoc();
-    $approvedCount = $row['approved_count'];
-} else {
-    $approvedCount = 0;
-}
 ?>
     <!DOCTYPE html>
     <html lang="vi">
@@ -121,7 +107,6 @@ if (isset($_SESSION['user_id'])) {
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
         <!-- Font Awesome Icons -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
     <style>
             :root {
                 --primary-color: #FF6B6B;
@@ -486,21 +471,19 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                     <div class="col-md-6 text-end">
                         <small>
-                           
                             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'users'): ?>
-                                 
-                                 <a href="history.php" class="text-white me-3">Lịch sử mua hàng</a>
-                                
+                                <a href="order_tracking.php" class="text-white me-3"><i class="fas fa-truck me-1"></i> Theo dõi đơn hàng</a>
+                                <a href="#" class="text-white me-3"><i class="fas fa-map-marker-alt me-1"></i> Cửa hàng gần bạn</a>
+                            <?php elseif (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                <a href="admin_orders.php" class="text-white me-3"><i class="fas fa-tasks me-1"></i> Quản lý đơn hàng</a>
                             <?php endif; ?>
-                            
-                           <?php if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])): ?>
+                            <?php if (isset($_SESSION['user_id'])): ?>
                                 <span class="text-white me-3">Xin chào, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                                 <a href="logout.php" class="text-white"><i class="fas fa-sign-out-alt me-1"></i> Đăng xuất</a>
                             <?php else: ?>
                                 <a href="login.php" class="text-white"><i class="fas fa-user me-1"></i> Đăng nhập</a>
                                 <a href="register.php" class="text-white ms-3"><i class="fas fa-user-plus me-1"></i> Đăng ký</a>
                             <?php endif; ?>
-                           
                         </small>
                     </div>
                 </div>
@@ -520,18 +503,18 @@ if (isset($_SESSION['user_id'])) {
                             <a class="nav-link active" href="index.php">Trang chủ</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="products.php">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sản phẩm
                             </a>
-                            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Đồ chơi cho bé trai</a></li>
                                 <li><a class="dropdown-item" href="#">Đồ chơi cho bé gái</a></li>
                                 <li><a class="dropdown-item" href="#">Đồ chơi học tập</a></li>
                                 <li><a class="dropdown-item" href="#">Đồ chơi vận động</a></li>
                                 <li><a class="dropdown-item" href="#">Đồ chơi xếp hình</a></li>
-                            </ul> -->
+                            </ul>
                         </li>
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Khuyến mãi</a>
                         </li>
                         <li class="nav-item">
@@ -539,24 +522,22 @@ if (isset($_SESSION['user_id'])) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Về chúng tôi</a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#footer">Liên hệ</a>
+                            <a class="nav-link" href="#">Liên hệ</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center">
-                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'users'): ?>
-                                <a href="notice.php" class="btn btn-primary m-2">
-                                    <i class="bi bi-chat-dots"></i> <span class="badge bg-danger"><?= $approvedCount ?></span></a>
-                                </a>
-
-                            <?php endif; ?>
                         <form class="search-form me-3" action="search.php" method="GET">
-                            
                             <input class="form-control" type="search" name="query" placeholder="Tìm kiếm đồ chơi..." aria-label="Search">
                             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-                             
                         </form>
+                        <!-- <a href="favorites.php" class="btn btn-outline-dark position-relative me-2"> -->
+                            <!-- <i class="fas fa-heart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger favorite-badge">
+                            <?php echo $favorite_count; ?>
+                        </span>
+                        </a> -->
                         <a href="cart.php" class="btn btn-outline-dark position-relative">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
@@ -595,13 +576,13 @@ if (isset($_SESSION['user_id'])) {
           <a href="Chart.php" class="btn btn-primary p-3 font-extrabold m-2">View reveneu</a>
           <a href="ManageStaff.php" class="btn btn-primary p-3 font-extrabold m-2" style="width: 120px;">Staff list</a>
           <a href="ManageProduct.php" class="btn btn-primary p-3 font-extrabold m-2" style="width: 120px;">Store</a>
+                <a href="admin_orders.php" class="btn btn-primary p-3 font-extrabold m-2" style="width: 120px;">Orders</a>
       <?php endif; ?>
         </section>
          <!-- Chức năng staff -->
         <section>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'staff'): ?>
           <a href="confirm.php" class="btn btn-primary p-3 font-extrabold m-3">Confirm payment  <span class="badge bg-danger"><?= $pendingCount ?></span></a>
-          <a href="reason.php" class="btn btn-primary p-3 font-extrabold ">Verify reason</a>
       <?php endif; ?>
         </section>
         <!-- Categories Section -->
@@ -866,7 +847,7 @@ if (isset($_SESSION['user_id'])) {
         </section>
 
         <!-- Footer -->
-        <footer id="footer "class="footer bg-dark">
+        <footer class="footer bg-dark">
             <div class="container">
                 <div class="row pt-5">
                     <div class="col-md-4 col-12 mb-4">
