@@ -319,7 +319,7 @@ $cart_count = isset($_SESSION['cart']) && !empty($_SESSION['cart']) ? array_sum(
                     <div class="col-md-6 text-end">
                         <small>
                             <a href="#" class="text-white me-3"><i class="fas fa-truck me-1"></i> Theo dõi đơn hàng</a>
-                            <a href="#" class="text-white me-3"><i class="fas fa-map-marker-alt me-1"></i> Cửa hàng gần bạn</a>
+                            
                             <?php if (isset($_SESSION['user_id'])): ?>
                                 <span class="text-white me-3">Xin chào, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
                                 <a href="logout.php" class="text-white"><i class="fas fa-sign-out-alt me-1"></i> Đăng xuất</a>

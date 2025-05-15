@@ -490,7 +490,9 @@ if (isset($_SESSION['user_id'])) {
                             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'users'): ?>
                                  
                                  <a href="history.php" class="text-white me-3">Lịch sử mua hàng</a>
-                                
+                                <a href="order_tracking.php" class="text-white me-3"><i class="fas fa-truck me-1"></i> Theo dõi đơn hàng</a>
+                            <?php elseif (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                <a href="admin_orders.php" class="text-white me-3"><i class="fas fa-tasks me-1"></i> Quản lý đơn hàng</a>
                             <?php endif; ?>
                             
                            <?php if (isset($_SESSION['user_id']) && isset($_SESSION['user_name'])): ?>
