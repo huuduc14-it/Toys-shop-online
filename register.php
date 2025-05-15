@@ -304,11 +304,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="text-center mt-3">
                     <p class="text-muted">Đã có tài khoản? <a href="login.php" class="text-primary">Đăng nhập ngay</a></p>
                 </div>
-                <div class="social-register text-center">
-                    <p class="text-muted">Hoặc đăng ký bằng</p>
-                    <button class="btn"><i class="fab fa-google"></i> Google</button>
-                    <button class="btn"><i class="fab fa-facebook-f"></i> Facebook</button>
-                </div>
             </div>
         </div>
     </section>

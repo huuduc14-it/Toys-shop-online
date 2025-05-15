@@ -218,9 +218,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button type="submit" class="btn btn-primary btn-login">Đăng nhập</button>
                 </form>
                 <div class="text-center mt-3">
-                    <a href="forgot-password.php" class="text-muted">Quên mật khẩu?</a>
-                </div>
-                <div class="text-center mt-3">
                     <p class="text-muted">Chưa có tài khoản? <a href="register.php" class="text-primary">Đăng ký ngay</a></p>
                 </div>
             </div>
